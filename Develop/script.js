@@ -12,26 +12,24 @@ function writePassword() {
   passwordText.value = password;
 
 }
+//generate password function
 var generatePassword = function () {
   var length = getLength();
   var characterTypes = getCharacterType();
   var password = ""
-  var i = 0 
-  while (password.length < length) {
-    //(let i = 0; i < characterTypes.length; i++) {
-    console.log(characterTypes[i]);
-    var listOfCanidates = characters[characterTypes[i]]
-    var randomIndex = Math.floor(Math.random() * listOfCanidates.length);
-    console.log(listOfCanidates[randomIndex]);
-    password = password + listOfCanidates[randomIndex];
-    i++;
+  
+  for (let i = 0; i < length; i++) {
+    console.log(characterTypes);
+    var randomIndex = Math.floor(Math.random() * characterTypes.length);
+    password = password + characterTypes[randomIndex];
+    console.log(password);
   }
 
   return password;
 
 };
 
-
+//get length of password
 var getLength = function () {
   while (true) {
     var length = parseInt(window.prompt("Choose password length. min 8 - max 128"))
@@ -41,28 +39,28 @@ var getLength = function () {
     window.alert("Enter a value between 8 - 128");
   }
 };
-
+//characteres object
 var characters = {
-  "uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  "lowercase": "abcdefghijklmnopqrstuvwxyz",
-  "numbers": "0123456789",
-  "symbols": "!@#$%^&*()_-+={}[]|\"",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  numbers: "0123456789",
+  symbols: "!@#$%^&*()_-+={}[]|\"",
 }
-
+//determine what types of characters in the password
 var getCharacterType = function () {
-  var result = []
+  var result = ""
   while (true) {
     if (window.confirm("uppercase?")) {
-      result.push("uppercase")
+      result = result + characters.uppercase
     }
     if (window.confirm("lowercase?")) {
-      result.push("lowercase")
+      result = result + characters.lowercase
     }
     if (window.confirm("numbers?")) {
-      result.push("numbers")
+      result = result + characters.numbers
     }
     if (window.confirm("symbols?")) {
-      result.push("symbols")
+      result = result + characters.symbols
     }
     if (result.length > 0) {
       return result
