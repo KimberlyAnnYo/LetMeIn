@@ -10,3 +10,7 @@ This is a generator for a strong password between 8 and 128 characters.
 ## Github link
 https://github.com/KimberlyAnnYo/LetMeIn
 
+## Deployed web page
+https://kimberlyannyo.github.io/LetMeIn/
+
+![alt text](desktop.letmein.photo.png)
